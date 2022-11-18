@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include buk *.css
+recursive-include buk *.csv
+recursive-include buk *.html
+recursive-include buk *.ico
+recursive-include buk *.js
+recursive-include buk *.json
+recursive-include buk *.md
+recursive-include buk *.png
+recursive-include buk *.py
+recursive-include buk *.svg
+recursive-include buk *.txt
+recursive-exclude buk *.pyc
