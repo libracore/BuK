@@ -1,0 +1,231 @@
+{
+ "autoname": "naming_series:",
+ "creation": "2022-11-18 09:25:26.387485",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_allgemein",
+  "titel",
+  "start_date",
+  "cb_1",
+  "status",
+  "naming_series",
+  "section_kundendaten",
+  "customer",
+  "customer_name",
+  "cb_2",
+  "contact",
+  "cb_3",
+  "address",
+  "section_intervall",
+  "days",
+  "intervall_neuberechnung",
+  "cb_4",
+  "months",
+  "cb_5",
+  "years",
+  "section_faelligkeit",
+  "geplant_per",
+  "letztmals_durchgefuehrt",
+  "durchgefuehrte_termine",
+  "cb_6",
+  "vereinbarter_termin",
+  "termin_vereinbart",
+  "section_details",
+  "details"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_allgemein",
+   "fieldtype": "Section Break",
+   "label": "Allgemein"
+  },
+  {
+   "depends_on": "eval:doc.__islocal",
+   "fieldname": "titel",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Titel",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Startdatum",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "cb_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Aktiv\nInaktiv",
+   "reqd": 1
+  },
+  {
+   "default": "ServA-.######",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "ServA-.######",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_kundendaten",
+   "fieldtype": "Section Break",
+   "label": "Kundendaten"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Kunde",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contact",
+   "fieldtype": "Link",
+   "label": "Kontakt",
+   "options": "Contact",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Link",
+   "label": "Adresse",
+   "options": "Address",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_intervall",
+   "fieldtype": "Section Break",
+   "label": "Intervall"
+  },
+  {
+   "fieldname": "days",
+   "fieldtype": "Int",
+   "label": "Tage"
+  },
+  {
+   "fieldname": "cb_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "months",
+   "fieldtype": "Int",
+   "label": "Monate"
+  },
+  {
+   "fieldname": "cb_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "years",
+   "fieldtype": "Int",
+   "label": "Jahre"
+  },
+  {
+   "fieldname": "section_faelligkeit",
+   "fieldtype": "Section Break",
+   "label": "F\u00e4lligkeit"
+  },
+  {
+   "fieldname": "geplant_per",
+   "fieldtype": "Date",
+   "label": "N\u00e4chste geplante Ausf\u00fchrung",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "termin_vereinbart",
+   "fieldtype": "Check",
+   "label": "Termin vereinbart"
+  },
+  {
+   "depends_on": "eval:doc.termin_vereinbart",
+   "fieldname": "vereinbarter_termin",
+   "fieldtype": "Date",
+   "label": "Vereinbarter Termin"
+  },
+  {
+   "fieldname": "durchgefuehrte_termine",
+   "fieldtype": "Code",
+   "label": "Durchgef\u00fchrte Termine",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_details",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Text Editor",
+   "label": "Details"
+  },
+  {
+   "fieldname": "cb_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "letztmals_durchgefuehrt",
+   "fieldtype": "Date",
+   "label": "Letztmals durchgef\u00fchrt",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.geplant_per",
+   "fieldname": "intervall_neuberechnung",
+   "fieldtype": "Button",
+   "label": "Neuberechnung n\u00e4chster geplanten Ausf\u00fchrung"
+  },
+  {
+   "fetch_from": "customer.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Kundenname",
+   "read_only": 1
+  }
+ ],
+ "modified": "2022-11-18 13:14:51.444974",
+ "modified_by": "Administrator",
+ "module": "BuK",
+ "name": "Service Arbeiten",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "titel",
+ "track_changes": 1
+}

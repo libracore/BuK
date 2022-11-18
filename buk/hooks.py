@@ -90,23 +90,11 @@ app_license = "MIT"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"buk.tasks.all"
-# 	],
-# 	"daily": [
-# 		"buk.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"buk.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"buk.tasks.weekly"
-# 	]
-# 	"monthly": [
-# 		"buk.tasks.monthly"
-# 	]
-# }
+scheduler_events = {
+    "daily": [
+        "buk.buk.doctype.service_arbeiten.service_arbeiten.check_set_new_date"
+    ]
+}
 
 # Testing
 # -------
