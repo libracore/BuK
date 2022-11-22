@@ -15,6 +15,7 @@ def get_columns():
         {"label": _("Titel"), "fieldname": "titel", "fieldtype": "Data"},
         {"label": _("Dokument"), "fieldname": "name", "fieldtype": "Link", "options": "Service Arbeiten", "width": 105},
         {"label": _("Status"), "fieldname": "status", "fieldtype": "Data"},
+        {"label": _("Typ"), "fieldname": "typ", "fieldtype": "Data"},
         {"label": _("Kunde"), "fieldname": "customer", "fieldtype": "Link", "options": "Customer"},
         {"label": _("Kundenname"), "fieldname": "customer_name", "fieldtype": "Data", "width": 190},
         {"label": _("Geplant"), "fieldname": "geplant_per", "fieldtype": "Date"},
@@ -36,6 +37,7 @@ def get_data(filters):
                                 `termin_vereinbart`,
                                 `letztmals_durchgefuehrt`,
                                 `customer_name`,
-                                `vereinbarter_termin`
+                                `vereinbarter_termin`,
+                                `typ`
                             FROM `tabService Arbeiten`
                             {aktive_filter}""".format(aktive_filter=aktive_filter), as_dict=True)

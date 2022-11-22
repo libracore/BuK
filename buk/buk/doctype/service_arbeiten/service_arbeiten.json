@@ -10,6 +10,7 @@
   "start_date",
   "cb_1",
   "status",
+  "typ",
   "naming_series",
   "section_kundendaten",
   "customer",
@@ -98,8 +99,7 @@
    "fieldname": "contact",
    "fieldtype": "Link",
    "label": "Kontakt",
-   "options": "Contact",
-   "reqd": 1
+   "options": "Contact"
   },
   {
    "fieldname": "cb_3",
@@ -109,8 +109,7 @@
    "fieldname": "address",
    "fieldtype": "Link",
    "label": "Adresse",
-   "options": "Address",
-   "reqd": 1
+   "options": "Address"
   },
   {
    "fieldname": "section_intervall",
@@ -118,6 +117,7 @@
    "label": "Intervall"
   },
   {
+   "default": "0",
    "fieldname": "days",
    "fieldtype": "Int",
    "label": "Tage"
@@ -127,6 +127,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "0",
    "fieldname": "months",
    "fieldtype": "Int",
    "label": "Monate"
@@ -136,6 +137,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "0",
    "fieldname": "years",
    "fieldtype": "Int",
    "label": "Jahre"
@@ -202,9 +204,15 @@
    "in_list_view": 1,
    "label": "Kundenname",
    "read_only": 1
+  },
+  {
+   "fieldname": "typ",
+   "fieldtype": "Link",
+   "label": "Typ",
+   "options": "Service Arbeiten Typ"
   }
  ],
- "modified": "2022-11-18 13:14:51.444974",
+ "modified": "2022-11-22 08:54:05.947440",
  "modified_by": "Administrator",
  "module": "BuK",
  "name": "Service Arbeiten",
