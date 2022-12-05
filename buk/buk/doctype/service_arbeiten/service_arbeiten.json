@@ -15,10 +15,16 @@
   "section_kundendaten",
   "customer",
   "customer_name",
+  "project",
   "cb_2",
   "contact",
+  "festnetz",
+  "mobile",
   "cb_3",
   "address",
+  "strasse",
+  "plz",
+  "ort",
   "section_intervall",
   "days",
   "intervall_neuberechnung",
@@ -210,9 +216,50 @@
    "fieldtype": "Link",
    "label": "Typ",
    "options": "Service Arbeiten Typ"
+  },
+  {
+   "fetch_from": "address.address_line1",
+   "fieldname": "strasse",
+   "fieldtype": "Data",
+   "label": "Strasse",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "address.pincode",
+   "fieldname": "plz",
+   "fieldtype": "Data",
+   "label": "PLZ",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "address.city",
+   "fieldname": "ort",
+   "fieldtype": "Data",
+   "label": "Ort",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "contact.phone",
+   "fieldname": "festnetz",
+   "fieldtype": "Data",
+   "label": "Festnetz",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "contact.mobile_no",
+   "fieldname": "mobile",
+   "fieldtype": "Data",
+   "label": "Mobile",
+   "read_only": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Projekt",
+   "options": "Project"
   }
  ],
- "modified": "2022-11-22 08:54:05.947440",
+ "modified": "2022-12-05 15:17:24.410350",
  "modified_by": "Administrator",
  "module": "BuK",
  "name": "Service Arbeiten",
