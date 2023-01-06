@@ -5,7 +5,7 @@
 from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
-from frappe.utils.data import add_to_date, today, formatdate
+from frappe.utils.data import add_to_date, today, formatdate, getdate
 
 class ServiceArbeiten(Document):
     def validate(self):
@@ -19,7 +19,7 @@ class ServiceArbeiten(Document):
     
     def set_new_date(self):
         # berechne und setze nächstes ausführungsdatum anhand intervall und kundentermin
-        if self.vereinbarter_termin < today():
+        if self.vereinbarter_termin < getdate(today()):
             try:
                 self.durchgefuehrte_termine += "{0}\n".format(frappe.utils.get_datetime(self.vereinbarter_termin).strftime('%d.%m.%Y'))
             except:
