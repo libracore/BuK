@@ -19,7 +19,7 @@ class ServiceArbeiten(Document):
     
     def set_new_date(self):
         # berechne und setze nächstes ausführungsdatum anhand intervall und kundentermin
-        if self.vereinbarter_termin < getdate(today()):
+        if self.vereinbarter_termin < today():
             try:
                 self.durchgefuehrte_termine += "{0}\n".format(frappe.utils.get_datetime(self.vereinbarter_termin).strftime('%d.%m.%Y'))
             except:
