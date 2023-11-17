@@ -1,7 +1,7 @@
 frappe.ui.form.on("Material Request", {
     refresh: function(frm) {
 		if (!frm.doc.__islocal) {
-			frm.add_custom_button(__("Create Excel File"),  function(frm){
+			frm.add_custom_button("Excel exportieren",  function(frm){
 				create_excel_file(frm);
 			});
 		}
