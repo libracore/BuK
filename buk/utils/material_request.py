@@ -48,29 +48,23 @@ def create_mr_excel_export(material_request):
 		
 	#create grid and add data to it
 	# ~ columns = ["Menge", "Einheit", "Artikel-Code", "Artikelgruppe"]
-	# ~ rows = []
-	
-	
 	
 	for entry in data:
 		row = [entry.get('qty'), entry.get('uom'), entry.get('item_code'), entry.get('item_group')]
 		ws.append(row)
 	
-	# ~ xlsx_data = [columns] + rows
-	# ~ frappe.log_error(xlsx_data)
-	
-	# ~ xlsx_file = make_xlsx("material_request", xlsx_data)
-	
 	xlsx_file = BytesIO()
 	wb.save(xlsx_file)
-	# ~ xlsx_io.write(xlsx_file)
+	file_data = xlsx_file.getvalue()
 
-	# ~ filename = 'material_request.xlsx'
+	file_entry = frappe.get_doc({
+		'doctype': 'File',
+		'file_name': 'Material_Request_Export_{0}.xlsx'.format(material_request),
+		'folder': 'Home/Attachments',
+		'is_privat': 1,
+		'content': file_data,
+		'attached_to_doctype': 'Material Request',
+		'attached_to_name': material_request
+	}).save()
 	
-	# ~ file_path = "/tmp/material_request.xlsx"
-	# ~ with open(file_path, "wb") as file:
-		# ~ file.write(xlsx_file)
-
-	# ~ frappe.download(xlsx_file.getvalue(), filename=filename, content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-	frappe.log_error(xlsx_file)
-	return xlsx_file
+	return
